@@ -369,7 +369,7 @@ with col1:
 with col2:
     fig = px.bar(budget_top10_recycle,x='세부사업명', y='자체재원',
                 labels={'자체재원': '구비', '세부사업명': '사업명'},
-                template= 'simple_white',text = budget_top10_recycle['예산액'].apply(lambda x: f'{x:,.0f}'))
+                template= 'simple_white',text = budget_top10_recycle['자체재원'].apply(lambda x: f'{x:,.0f}'))
     fig.update_layout(title = {
         'text':  f'<b>{selected_department} 예산 현황(구비)</b><br><sub>2024년 세부사업(상위10개 사업)</sub>',
         'y': 0.95,
