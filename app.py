@@ -344,9 +344,9 @@ with col2:
 
 st.markdown("---")
 col1, col2 = st.columns(2)
-budget_top10_recycle = department_group.nlargest(10,'자체재원')
-budget_top10_recycle = budget_top10_recycle.sort_values(by='자체재원',ascending=False)
-budget_top10_recycle.reset_index(inplace=True)
+budget_top10_business = department_group.nlargest(10,'자체재원')
+budget_top10_business = budget_top10_business.sort_values(by='자체재원',ascending=False)
+budget_top10_business.reset_index(inplace=True)
 department_group.reset_index(inplace = True)
 
 with col1:
@@ -367,9 +367,9 @@ with col1:
     st.plotly_chart(fig, use_container_width=True)
 
 with col2:
-    fig = px.bar(budget_top10_recycle,x='세부사업명', y='자체재원',
+    fig = px.bar(budget_top10_business,x='세부사업명', y='자체재원',
                 labels={'자체재원': '구비', '세부사업명': '사업명'},
-                template= 'simple_white',text = budget_top10_recycle['자체재원'].apply(lambda x: f'{x:,.0f}'))
+                template= 'simple_white',text = budget_top10_business['자체재원'].apply(lambda x: f'{x:,.0f}'))
     fig.update_layout(title = {
         'text':  f'<b>{selected_department} 예산 현황(구비)</b><br><sub>2024년 세부사업(상위10개 사업)</sub>',
         'y': 0.95,
