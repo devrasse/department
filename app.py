@@ -208,7 +208,8 @@ with col2:
     
 st.markdown("---")
 col1, col2 = st.columns(2) 
-budget_of_department = budget[budget['부서명']== selected_department]
+budget_of_department = budget[budget['부서명'] == selected_department]
+budget_of_department['예산액'] = (budget_of_department['예산액']  / 1000).apply(np.floor)
 budget_of_department['자체재원'] = (budget_of_department['자체재원']  / 1000).apply(np.floor)
 #budget_of_department['자체재원'] = (department_of_recycle['자체재원']  / 1000).apply(np.floor)
 #department_of_recycle = budget_2024[budget_2024['부서명'] == '자원순환과']
